@@ -21,6 +21,7 @@
 # define TRUE 1
 # define FALSE 0
 
+void				ft_put2dstr(char **tab);
 char				**ft_split_whitespaces(char *str);
 int					ft_charcount(char *s, int i);
 int					ft_wordcount(char *s, char c);
