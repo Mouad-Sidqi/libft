@@ -6,21 +6,48 @@
 /*   By: msidqi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 22:13:10 by msidqi            #+#    #+#             */
-/*   Updated: 2018/10/19 03:21:37 by msidqi           ###   ########.fr       */
+/*   Updated: 2019/02/03 08:59:25 by msidqi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
 
+# define ABS(Value) (Value >= 0) ? (Value) : -(Value)
 # define BUFF_SIZE 900
 # define TRUE 1
 # define FALSE 0
+# define MALLOCC(p, s) if (!(p = (char *)malloc(sizeof(char) * s)))\exit (-1);
+# define MALLOCN(p, s) if (!(p = (int *)malloc(sizeof(int) * s)))\exit (-1);
 
+typedef struct		s_point2
+{
+	int				x;
+	int				y;
+}					t_point2;
+
+typedef struct		s_point3
+{
+	int				x;
+	int				y;
+	int				z;
+}					t_point3;
+
+typedef	struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
+
+int					ft_sqrt(int nb);
+char				*ft_itoa_base(int value, int base);
+void				ft_alert(char *str, int n);
 void				ft_put2dstr(char **tab);
 char				**ft_split_whitespaces(char *str);
 int					ft_charcount(char *s, int i);
@@ -82,13 +109,6 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
-
-typedef	struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
