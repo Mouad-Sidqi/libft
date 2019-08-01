@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_link_two_lists.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidqi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/12 21:47:17 by msidqi            #+#    #+#             */
-/*   Updated: 2018/10/12 23:28:14 by msidqi           ###   ########.fr       */
+/*   Created: 2019/07/17 15:58:49 by msidqi            #+#    #+#             */
+/*   Updated: 2019/07/17 15:59:07 by msidqi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_link_two_lists(t_list *head_1, t_list *head_2)
 {
-	void	*tab;
-	size_t	i;
-
-	i = 0;
-	if (!(tab = (void *)malloc(size)))
-		return (NULL);
-	else
+	if (head_1 == NULL || head_2 == NULL)
+		return ;
+	while (head_1 != NULL)
 	{
-		ft_bzero(tab, size);
-		return (tab);
+		head_1 = head_1->next;
 	}
+	head_1->next = head_2;
 }

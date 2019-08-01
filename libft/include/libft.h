@@ -6,7 +6,7 @@
 /*   By: msidqi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 22:13:10 by msidqi            #+#    #+#             */
-/*   Updated: 2019/02/03 08:59:25 by msidqi           ###   ########.fr       */
+/*   Updated: 2019/07/24 17:50:13 by kdaou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,8 @@
 # define BUFF_SIZE 900
 # define TRUE 1
 # define FALSE 0
-# define MALLOCC(p, s) if (!(p = (char *)malloc(sizeof(char) * s)))\exit (-1);
-# define MALLOCN(p, s) if (!(p = (int *)malloc(sizeof(int) * s)))\exit (-1);
-
-typedef struct		s_point2
-{
-	int				x;
-	int				y;
-}					t_point2;
-
-typedef struct		s_point3
-{
-	int				x;
-	int				y;
-	int				z;
-}					t_point3;
+# define MALLOCC(p, size) (p = (char *)malloc(size))
+# define STATIC_ARRAY_SIZE(ptr) (sizeof(ptr) / sizeof(ptr[0]))
 
 typedef	struct		s_list
 {
@@ -45,10 +32,11 @@ typedef	struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+void				ft_free_tab(char ***tab);
 int					ft_sqrt(int nb);
 char				*ft_itoa_base(int value, int base);
 void				ft_alert(char *str, int n);
-void				ft_put2dstr(char **tab);
+void				ft_puttwodstr(char **tab);
 char				**ft_split_whitespaces(char *str);
 int					ft_charcount(char *s, int i);
 int					ft_wordcount(char *s, char c);
@@ -116,7 +104,6 @@ void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-
-int					get_next_line(const int fd, char **line);
+void				ft_link_two_lists(t_list *head_1, t_list *head_2);
 
 #endif

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puttwodtab.c                                    :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidqi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/27 00:17:12 by msidqi            #+#    #+#             */
-/*   Updated: 2018/12/27 00:19:38 by msidqi           ###   ########.fr       */
+/*   Created: 2018/10/12 21:47:17 by msidqi            #+#    #+#             */
+/*   Updated: 2018/10/12 23:28:14 by msidqi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_puttwodstr(char **tab)
+void	*ft_memalloc(size_t size)
 {
-	int i;
+	void	*tab;
 
-	i = 0;
-	while (tab[i])
-		ft_putstr(tab[i++]);
+	if (!(tab = (void *)malloc(size)))
+		return (NULL);
+	else
+	{
+		ft_bzero(tab, size);
+		return (tab);
+	}
 }

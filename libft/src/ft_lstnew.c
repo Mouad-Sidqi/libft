@@ -6,7 +6,7 @@
 /*   By: msidqi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/17 16:29:04 by msidqi            #+#    #+#             */
-/*   Updated: 2018/10/17 23:51:48 by msidqi           ###   ########.fr       */
+/*   Updated: 2019/07/24 18:04:43 by kdaou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,20 @@
 
 t_list	*ft_lstnew(void	const *content, size_t content_size)
 {
-	t_list	*node1;
+	t_list	*node;
 
-	if (!(node1 = (t_list *)malloc(sizeof(t_list))))
+	if (!(node = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
 	if (content == NULL)
 	{
-		node1->content = NULL;
-		node1->content_size = 0;
-		node1->next = NULL;
+		node->content = NULL;
+		node->content_size = 0;
 	}
 	else
 	{
-		if (!(node1->content = (void *)ft_strdup((char *)content)))
-		{
-			free(node1);
-			return (NULL);
-		}
-		node1->content_size = content_size;
-		node1->next = NULL;
+		node->content = (void *)content;
+		node->content_size = content_size;
 	}
-	return (node1);
+	node->next = NULL;
+	return (node);
 }
