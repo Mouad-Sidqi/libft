@@ -22,7 +22,6 @@
 # define BUFF_SIZE 900
 # define TRUE 1
 # define FALSE 0
-# define MALLOCC(p, size) (p = (char *)malloc(size))
 # define STATIC_ARRAY_SIZE(ptr) (sizeof(ptr) / sizeof(ptr[0]))
 
 typedef	struct		s_list
